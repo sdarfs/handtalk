@@ -1,3 +1,5 @@
+import com.android.build.api.dsl.AaptOptions
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,6 +8,10 @@ plugins {
 android {
     namespace = "com.example.handtalk"
     compileSdk = 35
+
+    aaptOptions {
+        noCompress ("tflite")
+    }
 
     defaultConfig {
         applicationId = "com.example.handtalk"
@@ -26,12 +32,16 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
 }

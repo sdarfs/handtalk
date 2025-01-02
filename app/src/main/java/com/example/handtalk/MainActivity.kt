@@ -27,11 +27,23 @@ class MainActivity : AppCompatActivity() {
         // Устанавливаем слушатель нажатий
         helpButton.setOnClickListener {
             // Создаем Intent для открытия URL
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/American_manual_alphabet"))
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://en.wikipedia.org/wiki/American_manual_alphabet")
+            )
             startActivity(browserIntent)
         }
 
-    }
+        val StartButton: FloatingActionButton = findViewById(R.id.start)
 
+        // Устанавливаем слушатель нажатий
+        StartButton.setOnClickListener {
+            startActivity(Intent(this, ClassifierActivity::class.java).apply {
+
+            })
+
+        }
+
+    }
 }
 
