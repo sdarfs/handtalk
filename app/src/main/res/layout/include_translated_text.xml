@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:text="@string/text_value"
+        android:text="Переведенный текст"
         app:layout_constraintEnd_toStartOf="@+id/copy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_arrow_up" />
@@ -33,8 +33,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button"
         android:includeFontPadding="false"
-        android:minHeight="48dp"
-        android:text="@string/clear"
+        android:minHeight="30dp"
+        android:text="Очистить"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/translated_text" />
@@ -47,7 +47,7 @@
         android:background="@drawable/button"
         android:includeFontPadding="false"
         android:minHeight="30dp"
-        android:text="Copy"
+        android:text="Скопировать"
         android:textAllCaps="false"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/clear"
@@ -64,6 +64,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/translated_text" />
 
+    <SeekBar
+        android:id="@+id/accuracy_meter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/accuracy_value"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accuracy_header" />
 
     <View
         android:id="@+id/view3"
@@ -73,7 +82,25 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accuracy_meter" />
 
-        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/accuracy_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        app:layout_constraintBottom_toBottomOf="@+id/accuracy_meter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/accuracy_meter" />
+
+    <TextView
+        android:id="@+id/accuracy_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Установить точность"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

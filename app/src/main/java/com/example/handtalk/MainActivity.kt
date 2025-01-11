@@ -1,49 +1,50 @@
 package com.example.handtalk
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import androidx.databinding.DataBindingUtil
+import com.example.handtalk.AppSharedPreferences
+import com.example.handtalk.classification.ClassifierActivity
+import com.example.handtalk.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("WrongViewCast")
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
+        handleUI()
+    }
+
+    private fun handleUI(){
+        binding.detect.setOnClickListener {
+            startActivity(Intent(this,ClassifierActivity::class.java).apply {
+
+            })
         }
-        val helpButton: FloatingActionButton = findViewById(R.id.help)
 
-        // Устанавливаем слушатель нажатий
-        helpButton.setOnClickListener {
-            // Создаем Intent для открытия URL
-            val browserIntent = Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse("https://en.wikipedia.org/wiki/American_manual_alphabet")
-            )
+        AppSharedPreferences.init(this)
+
+        if(AppSharedPreferences.getUserMode()){
+            binding.devMode.isChecked = true
+        }
+
+        binding.help.setOnClickListener {
+            val browserIntent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/American_manual_alphabet"))
             startActivity(browserIntent)
         }
 
-        val StartButton: FloatingActionButton = findViewById(R.id.start)
-
-        // Устанавливаем слушатель нажатий
-        StartButton.setOnClickListener {
-            startActivity(Intent(this, ClassifierActivity::class.java).apply {
-
-            })
-
+        binding.devMode.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if(isChecked){
+                AppSharedPreferences.setUserMode(true)
+            }else{
+                AppSharedPreferences.setUserMode(false)
+            }
         }
-
     }
 }
-

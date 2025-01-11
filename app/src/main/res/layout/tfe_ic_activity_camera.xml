@@ -21,7 +21,6 @@
     android:background="#00000000">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00000000"
@@ -33,13 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/black"
-            tools:context="com.example.handtalk.classification.CameraActivity" />
+            tools:context="com.example.handtalk.CameraActivity" >
+        </FrameLayout>
 
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:layout_width="137dp"
-            android:layout_height="91dp"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
             android:background="@color/white"
             android:visibility="gone">
@@ -57,11 +57,11 @@
         layout="@layout/tfe_ic_layout_bottom_sheet" />
 
     <TextView
-        android:id="@+id/predicted"
+        android:id="@+id/predicted_alphabet_overlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text=" "
+        android:text="A"
         android:textColor="#FFFFFF"
         android:textSize="80sp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

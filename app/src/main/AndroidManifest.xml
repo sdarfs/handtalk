@@ -29,6 +29,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".classification.ClassifierActivity"
+            android:label="@string/tfe_ic_app_name"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 

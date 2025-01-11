@@ -15,6 +15,8 @@ litertGpu = "1.0.1"
 litertSupportApi = "1.0.1"
 litertSupportApiVersion = "1.0.1"
 litertGpuVersion = "1.0.1"
+tensorflowLiteSupport = "0.4.4"
+tensorflowLiteVersion = "2.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +31,9 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLite" }
 litert-support-api = { group = "com.google.ai.edge.litert", name = "litert-support-api", version.ref = "litertSupportApiVersion" }
 litert-gpu = { group = "com.google.ai.edge.litert", name = "litert-gpu", version.ref = "litertGpuVersion" }
+tensorflow-lite-gpu = { module = "org.tensorflow:tensorflow-lite-gpu", version.ref = "tensorflowLiteVersion" }
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
+tensorflow-lite-v2120 = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLiteVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

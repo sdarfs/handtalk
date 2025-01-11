@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">handtalk</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Настройки</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label">Первый фрагмент</string>
+    <string name="second_fragment_label">Второй фрагмент</string>
+    <string name="next">Следующий</string>
+    <string name="previous">Предыдщуий</string>
     <string name="Start">Начать</string >
     <string name="tfe_ic_app_name" translation_description="Image Classification demo app [CHAR_LIMIT=40]">TFL Classify</string>
     <string name="tfe_ic_camera_error" translation_description="Error regarding camera support[CHAR_LIMIT=40]">This device doesn\'t support Camera2 API.</string>
     <string name="tfe_ic_gpu_quant_error" translation_description="Error regarding GPU support for Quant models[CHAR_LIMIT=60]">GPU does not yet supported quantized models.</string>
-    <string name="tfe_ic_model" translatable="false">Model:</string>
+    <string name="tfe_ic_model" translatable="false">Модель:</string>
     <string-array name="tfe_ic_models" translatable="false">
         <item>Quantized_EfficientNet</item>
         <item>Float_EfficientNet</item>
@@ -18,9 +18,11 @@
         <item>Float_MobileNet</item>
     </string-array>
 
-    <string name="tfe_ic_device" translatable="false">Device:</string>
+    <string name="tfe_ic_device" translatable="false">Устройство:</string>
     <string name="clear">Очистить</string>
     <string name="text_value">Текст появится тут</string>
+    <string name="developer_text">Режим разработчика</string>
+    <string name="start">Начать</string>
     <string-array name="tfe_ic_devices" translatable="false">
         <item>CPU</item>
         <item>GPU</item>
