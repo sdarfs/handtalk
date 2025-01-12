@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.handtalk.AppSharedPreferences
 import com.example.handtalk.classification.ClassifierActivity
 import com.example.handtalk.databinding.ActivityMainBinding
 
@@ -21,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun handleUI(){
-        binding.detect.setOnClickListener {
+        binding.start.setOnClickListener {
             startActivity(Intent(this,ClassifierActivity::class.java).apply {
 
             })
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.help.setOnClickListener {
             val browserIntent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://en.wikipedia.org/wiki/American_manual_alphabet"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://ru.wikipedia.org/wiki/Русский_жестовый_язык"))
             startActivity(browserIntent)
         }
 
