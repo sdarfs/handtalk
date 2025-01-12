@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="5dp">
@@ -22,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
-        android:text="Переведенный текст"
+        android:text="@string/text_appear"
         app:layout_constraintEnd_toStartOf="@+id/copy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_arrow_up" />
@@ -34,7 +33,7 @@
         android:background="@drawable/button"
         android:includeFontPadding="false"
         android:minHeight="30dp"
-        android:text="Очистить"
+        android:text="@string/Clear"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/translated_text" />
@@ -47,12 +46,12 @@
         android:background="@drawable/button"
         android:includeFontPadding="false"
         android:minHeight="30dp"
-        android:text="Скопировать"
+        android:text="@string/CopyText"
         android:textAllCaps="false"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/clear"
-        app:layout_constraintEnd_toStartOf="@+id/clear"
-        app:layout_constraintTop_toTopOf="@+id/clear" />
+
+        app:layout_constraintEnd_toEndOf="@+id/clear"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <View
         android:id="@+id/view2"
@@ -88,7 +87,7 @@
         android:id="@+id/accuracy_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
+        android:text="@string/_0"
         app:layout_constraintBottom_toBottomOf="@+id/accuracy_meter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/accuracy_meter" />
@@ -98,7 +97,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="Установить точность"
+        android:text="@string/setAccuracy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />

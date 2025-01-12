@@ -112,9 +112,11 @@ public abstract class Classifier {
    */
   public static Classifier create(Activity activity, Model model, Device device, int numThreads)
       throws IOException {
-    if (model == Model.QUANTIZED_MOBILENET) {
-      return new ClassifierQuantizedMobileNet(activity, device, numThreads);
-    } else if (model == Model.FLOAT_MOBILENET) {
+    // TODO: зависает приложение и потом вылетает
+    //if (model == Model.QUANTIZED_MOBILENET) {
+    //  return new ClassifierQuantizedMobileNet(activity, device, numThreads);
+    //}
+    if (model == Model.FLOAT_MOBILENET) {
       return new ClassifierFloatMobileNet(activity, device, numThreads);
     } else if (model == Model.FLOAT_EFFICIENTNET) {
       return new ClassifierFloatEfficientNet(activity, device, numThreads);

@@ -15,6 +15,11 @@
  */
 
 package com.example.handtalk.classification;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.view.View;
+import android.widget.Toast;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -103,9 +108,17 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
 
     copyText.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void onClick(View view)
-      {
-        //TODO
+      public void onClick(View view) {
+        // Получаем текст из TextView
+        String textToCopy = translatedValueTextView.getText().toString();
+
+        // Получаем доступ к системному буферу обмена
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("label", textToCopy);
+        clipboard.setPrimaryClip(clip);
+
+        // Уведомляем пользователя о том, что текст скопирован
+        Toast.makeText(view.getContext(), "Текст скопирован в буфер обмена", Toast.LENGTH_SHORT).show();
       }
     });
   }
@@ -131,11 +144,6 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
                     @Override
                     public void run() {
                       showResultsInBottomSheet(results);
-                      showFrameInfo(previewWidth + "x" + previewHeight);
-                      showCropInfo(imageSizeX + "x" + imageSizeY);
-                      showCameraResolution(cropSize + "x" + cropSize);
-                      showRotationInfo(String.valueOf(sensorOrientation));
-                      showInference(lastProcessingTimeMs + "ms");
                     }
                   });
             }

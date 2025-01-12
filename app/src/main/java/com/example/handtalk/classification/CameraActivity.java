@@ -19,7 +19,6 @@ package com.example.handtalk.classification;
 import android.Manifest;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
@@ -102,11 +101,6 @@ public abstract class CameraActivity extends AppCompatActivity
       translatedValueTextView,
       accuracyTextView,
       predictedAlphabetTextView;
-  protected TextView frameValueTextView,
-      cropValueTextView,
-      cameraResolutionTextView,
-      rotationTextView,
-      inferenceTimeTextView;
   protected ImageView bottomSheetArrowImageView;
   private ImageView plusImageView, minusImageView;
   private Spinner modelSpinner;
@@ -233,11 +227,6 @@ public abstract class CameraActivity extends AppCompatActivity
     recognition2TextView = findViewById(R.id.detected_item2);
     recognition2ValueTextView = findViewById(R.id.detected_item2_value);
     translatedValueTextView = findViewById(R.id.translated_text);
-
-
-
-
-
 
 
     translatedValueTextView.setOnClickListener(this);
@@ -632,26 +621,6 @@ public abstract class CameraActivity extends AppCompatActivity
 
       lastObservedRecognition = result;
     }
-  }
-
-  protected void showFrameInfo(String frameInfo) {
-    frameValueTextView.setText(frameInfo);
-  }
-
-  protected void showCropInfo(String cropInfo) {
-    cropValueTextView.setText(cropInfo);
-  }
-
-  protected void showCameraResolution(String cameraInfo) {
-    cameraResolutionTextView.setText(cameraInfo);
-  }
-
-  protected void showRotationInfo(String rotation) {
-    rotationTextView.setText(rotation);
-  }
-
-  protected void showInference(String inferenceTime) {
-    inferenceTimeTextView.setText(inferenceTime);
   }
 
   protected Model getModel() {

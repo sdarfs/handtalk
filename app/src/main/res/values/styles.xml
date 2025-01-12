@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/tfe_color_accent</item>
+        <item name="colorPrimaryDark">@color/tfe_color_accent</item>
+        <item name="colorAccent">@color/tfe_color_accent</item>
+        <item name="fontFamily">@font/poppins</item>
+<!--        <item name="android:background">@color/theme_bg</item>-->
+    </style>
+
+</resources>
