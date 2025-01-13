@@ -74,8 +74,8 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {
     final float textSizePx =
-        TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
+            TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, TEXT_SIZE_DIP, getResources().getDisplayMetrics());
     borderedText = new BorderedText(textSizePx);
     borderedText.setTypeface(Typeface.MONOSPACE);
 
@@ -129,27 +129,27 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
     final int cropSize = Math.min(previewWidth, previewHeight);
 
     runInBackground(
-        new Runnable() {
-          @Override
-          public void run() {
-            if (classifier != null) {
-              final long startTime = SystemClock.uptimeMillis();
-              final List<Classifier.Recognition> results =
-                  classifier.recognizeImage(rgbFrameBitmap, sensorOrientation);
-              lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
-              LOGGER.v("Detect: %s", results);
+            new Runnable() {
+              @Override
+              public void run() {
+                if (classifier != null) {
+                  final long startTime = SystemClock.uptimeMillis();
+                  final List<Classifier.Recognition> results =
+                          classifier.recognizeImage(rgbFrameBitmap, sensorOrientation);
+                  lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime;
+                  LOGGER.v("Detect: %s", results);
 
-              runOnUiThread(
-                  new Runnable() {
-                    @Override
-                    public void run() {
-                      showResultsInBottomSheet(results);
-                    }
-                  });
-            }
-            readyForNextImage();
-          }
-        });
+                  runOnUiThread(
+                          new Runnable() {
+                            @Override
+                            public void run() {
+                              showResultsInBottomSheet(results);
+                            }
+                          });
+                }
+                readyForNextImage();
+              }
+            });
   }
 
   @Override
@@ -170,18 +170,10 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
       classifier.close();
       classifier = null;
     }
-    if (device == Device.GPU
-        && (model == Model.QUANTIZED_MOBILENET || model == Model.QUANTIZED_EFFICIENTNET)) {
-      LOGGER.d("Not creating classifier: GPU doesn't support quantized models.");
-      runOnUiThread(
-          () -> {
-            Toast.makeText(this, R.string.tfe_ic_gpu_quant_error, Toast.LENGTH_LONG).show();
-          });
-      return;
-    }
+
     try {
       LOGGER.d(
-          "Creating classifier (model=%s, device=%s, numThreads=%d)", model, device, numThreads);
+              "Creating classifier (model=%s, device=%s, numThreads=%d)", model, device, numThreads);
       classifier = Classifier.create(this, model, device, numThreads);
     } catch (IOException e) {
       LOGGER.e(e, "Failed to create classifier.");

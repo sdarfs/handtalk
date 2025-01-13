@@ -15,9 +15,8 @@ limitations under the License.
 
 package com.example.handtalk.classification.customview;
 
-import com.example.handtalk.classification.tflite.Classifier.Recognition;
-
 import java.util.List;
+import com.example.handtalk.classification.tflite.Classifier.Recognition;
 
 public interface ResultsView {
   public void setResults(final List<Recognition> results);
